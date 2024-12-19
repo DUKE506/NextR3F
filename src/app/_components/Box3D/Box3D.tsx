@@ -1,9 +1,8 @@
 'use client'
-import { Environment, OrbitControls, useGLTF } from "@react-three/drei"
+import { Environment, OrbitControls } from "@react-three/drei"
 import { Canvas, useLoader } from "@react-three/fiber"
 import { Suspense, useEffect, useState } from "react"
 import { GLTFLoader } from "three/examples/jsm/Addons.js"
-import styles from './Box3D.module.css'
 import * as THREE from 'three'
 import { ControlBox } from "../ControlBox/ControlBox"
 interface Box3DProps{

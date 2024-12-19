@@ -1,38 +1,36 @@
-import Box3D from "./_components/Box3D/Box3D";
 import { Card, CardProps } from "./_components/Card/Card";
-import {ControlBox} from "./_components/ControlBox/ControlBox";
 import styles from './page.module.css'
 
 const CardData:CardProps[] = [
   {
     title : 'House',
     desc : '일반적인 단독주택 구조를 3d형태로 변환하였음',
-    url : '',
+    
   },
   {
     title : 'Apartment',
     desc : '아파트 구조를 3d형태로 변환하였음',
-    url : '',
+    
   },
   {
     title : 'Monitor',
     desc : '모니터 형태를 3d형태로 변환하였음',
-    url : '',
+    
   },
   {
     title : 'Benz',
     desc : '벤츠 형태를 3d형태로 변환하였음',
-    url : '',
+  
   },
   {
     title : 'Office',
     desc : '마우스 형태를 3d형태로 변환하였음',
-    url : '',
+    
   },
   {
     title : 'Forge',
     desc : '대장간 형태를 3d형태로 변환하였음',
-    url : '',
+    
   },
   // {
   //   title : 'Buffet',
@@ -57,7 +55,6 @@ export default function Home() {
                 key={idx}
                 title={card.title}
                 desc={card.desc}
-                url={card.url}
                 />
               )
             })

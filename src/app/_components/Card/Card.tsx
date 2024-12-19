@@ -4,10 +4,9 @@ import styles from './Card.module.css'
 export interface CardProps {
     title? : string;
     desc? : string;
-    url? : string;
 }
 
-export const Card = ({title, desc, url} : CardProps) => {
+export const Card = ({title, desc} : CardProps) => {
 
     return(
         <>
