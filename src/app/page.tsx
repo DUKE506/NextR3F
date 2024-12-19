@@ -34,11 +34,11 @@ const CardData:CardProps[] = [
     desc : '대장간 형태를 3d형태로 변환하였음',
     url : '',
   },
-  {
-    title : 'Buffet',
-    desc : '선반 형태를 3d형태로 변환하였음',
-    url : '',
-  },
+  // {
+  //   title : 'Buffet',
+  //   desc : '선반 형태를 3d형태로 변환하였음',
+  //   url : '',
+  // },
 ]
 
 export default function Home() {
