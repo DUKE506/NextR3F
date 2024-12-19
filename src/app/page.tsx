@@ -35,11 +35,6 @@ const CardData:CardProps[] = [
     url : '',
   },
   {
-    title : 'Alien',
-    desc : '에일리언 형태를 3d형태로 변환하였음',
-    url : '',
-  },
-  {
     title : 'Buffet',
     desc : '선반 형태를 3d형태로 변환하였음',
     url : '',
