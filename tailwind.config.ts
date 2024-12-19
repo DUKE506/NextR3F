@@ -8,12 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      //색상
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      //그리드 Columns
+      gridTemplateColumns:{
+        'item-2' : 'auto max-content',
+        'col-100' : '100%'
+      },
+      fontSize : {
+        s : '0.6rem',
+      }
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
 export default config;

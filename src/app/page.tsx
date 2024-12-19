@@ -15,38 +15,33 @@ const CardData:CardProps[] = [
     url : '',
   },
   {
-    title : 'Keyboard',
-    desc : '키보드 형태를 3d형태로 변환하였음',
+    title : 'Monitor',
+    desc : '모니터 형태를 3d형태로 변환하였음',
     url : '',
   },
   {
-    title : 'Laptop',
-    desc : '노트북 형태를 3d형태로 변환하였음',
+    title : 'Benz',
+    desc : '벤츠 형태를 3d형태로 변환하였음',
     url : '',
   },
   {
-    title : 'Mouse',
+    title : 'Office',
     desc : '마우스 형태를 3d형태로 변환하였음',
     url : '',
   },
   {
-    title : 'SmartPhone',
-    desc : '스마트폰 형태를 3d형태로 변환하였음',
+    title : 'Forge',
+    desc : '대장간 형태를 3d형태로 변환하였음',
     url : '',
   },
   {
-    title : 'Tablet',
-    desc : '태브릿 형태를 3d형태로 변환하였음',
+    title : 'Alien',
+    desc : '에일리언 형태를 3d형태로 변환하였음',
     url : '',
   },
   {
-    title : 'Wallet',
-    desc : '지갑 형태를 3d형태로 변환하였음',
-    url : '',
-  },
-  {
-    title : 'Tree',
-    desc : '나무 형태를 3d형태로 변환하였음',
+    title : 'Buffet',
+    desc : '선반 형태를 3d형태로 변환하였음',
     url : '',
   },
 ]
@@ -54,12 +49,12 @@ const CardData:CardProps[] = [
 export default function Home() {
   
   return (
-    <div className="h-full flex">
-      <div className={styles.container}>
-        <span className={styles.title}>
-          Welcome Next 3D viewer with R3F
+    <div className="h-full">
+      <div className='h-full flex flex-col gap-8 items-center p-8'>
+        <span className='font-bold text-green-900 text-2xl'>
+          Welcome to Next 3D viewer with R3F
         </span>
-        <div className={`${styles.grid}`}>
+        <div className={styles.grid}>
           {
             CardData.map((card,idx) => {
               return(
@@ -74,7 +69,6 @@ export default function Home() {
           }
         </div>
       </div>
-      <ControlBox/>
     </div>
     
   );
