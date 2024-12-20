@@ -26,7 +26,7 @@ const ErrorBoundary = ({ children }:{children : ReactNode}) => {
   
 
 const Page = ({params} : PageProps) => {
-
+    console.log(params.title)
     return(
         <ErrorBoundary>
             <div className={styles.container}>

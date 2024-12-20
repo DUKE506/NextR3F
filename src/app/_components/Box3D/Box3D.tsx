@@ -12,7 +12,7 @@ interface Box3DProps{
 const Box3D = ({fileName }: Box3DProps) => {
     const [cubes, setCubes] = useState<THREE.Mesh[]>([])
 
-    const gltf = useLoader(GLTFLoader, `./models/${fileName}.glb`)
+    const gltf = useLoader(GLTFLoader, `/models/${fileName}.glb`)
 
     useEffect(()=>{
         //모델 객체 순회하면서 3dObject반환
