@@ -6,7 +6,7 @@ const nextConfig = {
     async headers() {
         return [
             {
-                source: '/:path*.glb',
+                source: '/models/:path*.glb',
                 headers: [
                     {
                         key: 'Content-Type',
