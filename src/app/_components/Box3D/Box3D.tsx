@@ -1,8 +1,7 @@
 'use client'
 import { Environment, OrbitControls, useGLTF } from "@react-three/drei"
-import { Canvas, useLoader } from "@react-three/fiber"
+import { Canvas} from "@react-three/fiber"
 import { Dispatch, SetStateAction, Suspense, useEffect, useState } from "react"
-import { GLTFLoader } from "three/examples/jsm/Addons.js"
 import * as THREE from 'three'
 import { ControlBox } from "../ControlBox/ControlBox"
 import React from "react"
@@ -84,10 +83,12 @@ class ErrorBoundary extends React.Component<{children: React.ReactNode, fallback
     state = { hasError: false }
     
     static getDerivedStateFromError(error: any) {
+        console.log(error)
         return { hasError: true }
     }
     
     componentDidCatch(error: any, errorInfo: any) {
+        console.log(error)
         console.error('Error loading 3D model:', error, errorInfo)
     }
     
