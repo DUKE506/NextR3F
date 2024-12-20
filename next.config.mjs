@@ -25,10 +25,20 @@ const nextConfig = {
             test: /\.(glb|gltf)$/,
             type: 'asset/resource',
             generator: {
-                filename: 'models/[name][ext]'
+                // public 폴더에 직접 저장
+                filename: 'static/models/[name][ext]'
             }
         })
         return config
+    },
+     // 정적 파일 처리를 위한 설정 추가
+     async rewrites() {
+        return [
+            {
+                source: '/static/models/:path*',
+                destination: '/models/:path*'
+            }
+        ]
     }
 };
 
