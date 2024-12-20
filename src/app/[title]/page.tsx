@@ -14,30 +14,21 @@ const Box3D = dynamic(() => import('../_components/Box3D/Box3D'), {
     loading: () => <div>Loading 3D Model...</div>
   })
 
-  // ErrorBoundary 추가됨
-const ErrorBoundary = ({ children }:{children : ReactNode}) => {
-    try {
-      return children
-    } catch (error) {
-        console.log(error)
-      return <div>Error loading 3D model. Please try again later.</div>
-    }
-  }
-  
+
 
 const Page = ({params} : PageProps) => {
     console.log(params.title)
     return(
-        <ErrorBoundary>
-            <div className={styles.container}>
-                <Link href='/'>
-                    <div className={styles.btn}>
-                        목록
-                    </div>
-                </Link>
-                <Box3D fileName={params.title}/>
-            </div>
-        </ErrorBoundary>
+
+        <div className={styles.container}>
+            <Link href='/'>
+                <div className={styles.btn}>
+                    목록
+                </div>
+            </Link>
+            <Box3D fileName={params.title}/>
+        </div>
+   
     )
 }
 
