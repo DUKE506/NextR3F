@@ -19,6 +19,7 @@ const ErrorBoundary = ({ children }:{children : ReactNode}) => {
     try {
       return children
     } catch (error) {
+        console.log(error)
       return <div>Error loading 3D model. Please try again later.</div>
     }
   }

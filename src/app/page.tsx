@@ -1,3 +1,5 @@
+'use client'
+
 import { Card, CardProps } from "./_components/Card/Card";
 import styles from './page.module.css'
 
