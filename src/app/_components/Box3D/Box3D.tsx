@@ -1,10 +1,11 @@
 'use client'
-import { Environment, OrbitControls } from "@react-three/drei"
+import { Environment, OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas, useLoader } from "@react-three/fiber"
 import { Dispatch, SetStateAction, Suspense, useEffect, useState } from "react"
 import { GLTFLoader } from "three/examples/jsm/Addons.js"
 import * as THREE from 'three'
 import { ControlBox } from "../ControlBox/ControlBox"
+import React from "react"
 interface Box3DProps{
     fileName : string
 }
@@ -12,26 +13,28 @@ interface Box3DProps{
 
 const Model = ({fileName, setCubes}:{fileName: string; setCubes:Dispatch<SetStateAction<THREE.Mesh[]>>})  => {
     // const [cubes, setCubes] = useState<THREE.Mesh[]>([])
-    const gltf = useLoader(
-        GLTFLoader, 
-        `/static/models/${fileName}.glb`,
-        undefined,
-        (error) => {
-            console.error('Error loading model:', error)
-        }
-    )
+    // const gltf = useLoader(
+    //     GLTFLoader, 
+    //     `/static/models/${fileName}.glb`,
+    //     undefined,
+    //     (error) => {
+    //         console.error('Error loading model:', error)
+    //     }
+    // )
+
+    const { scene } = useGLTF(`/models/${fileName}.glb`)
 
     useEffect(()=>{
         //모델 객체 순회하면서 3dObject반환
-        gltf.scene.traverse((obj)=>{
+        scene.traverse((obj)=>{
             //mesh Object만 state에 담음
             if(obj instanceof THREE.Mesh){
                 setCubes(prev => ([...prev,obj]))
             }
         })
-    },[gltf.scene])
+    },[scene])
 
-    return gltf ? <primitive object={gltf.scene} /> : null
+    return scene ? <primitive object={scene} /> : null
 }
 
 
@@ -54,6 +57,7 @@ const Box3D = ({fileName }: Box3DProps) => {
     return(
         <>
             <div className="flex w-full h-screen">
+            <ErrorBoundary fallback={<div>Error loading 3D model</div>}>
                 <Suspense fallback={'Loading....'}>
                     <Canvas 
                     camera={{ position: [0, 5, 20] }}>
@@ -65,6 +69,7 @@ const Box3D = ({fileName }: Box3DProps) => {
                         
                     </Canvas>
                 </Suspense>
+                </ErrorBoundary>
                 <ControlBox meshes={cubes}/>
             </div>
 
@@ -72,5 +77,27 @@ const Box3D = ({fileName }: Box3DProps) => {
         
     )
 }
+
+
+// ErrorBoundary 컴포넌트 추가
+class ErrorBoundary extends React.Component<{children: React.ReactNode, fallback: React.ReactNode}> {
+    state = { hasError: false }
+    
+    static getDerivedStateFromError(error: any) {
+        return { hasError: true }
+    }
+    
+    componentDidCatch(error: any, errorInfo: any) {
+        console.error('Error loading 3D model:', error, errorInfo)
+    }
+    
+    render() {
+        if (this.state.hasError) {
+            return this.props.fallback
+        }
+        return this.props.children
+    }
+}
+
 
 export default Box3D
