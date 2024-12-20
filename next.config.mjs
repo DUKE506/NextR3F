@@ -15,6 +15,14 @@ const nextConfig = {
         'sharp': 'commonjs sharp',
         'canvas': 'commonjs canvas'
     })
+
+    config.module.rules.push({
+        test: /\.(glb|gltf)$/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'static/[hash][ext]'
+        }
+    })
     return config
     }
 };

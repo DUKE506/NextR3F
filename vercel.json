@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+    {
+        "source": "/models/:path*",
+        "destination": "/public/models/:path*"
+    }
+]
+}
